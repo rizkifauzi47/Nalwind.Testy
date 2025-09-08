@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nalwind.testy - Jualan Makanan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      /* Smooth scroll aktif */
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  
+  <!-- Header -->
+  <header class="bg-red-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-2xl font-bold">nalwind.testy</h1>
+      
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex gap-6">
+        <a href="#beranda" class="hover:text-yellow-300">Beranda</a>
+        <a href="produk.html" class="hover:text-yellow-300">Produk</a>
+        <a href="#tentang" class="hover:text-yellow-300">Tentang</a>
+        <a href="#kontak" class="hover:text-yellow-300">Kontak</a>
+      </nav>
+      
+      <!-- Hamburger Button -->
+      <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">☰</button>
+    </div>
+  </header>
+  
+  <!-- Menu Mobile (slide) -->
+  <div id="menu-mobile" class="fixed top-0 right-0 w-64 h-full bg-red-700 text-white transform translate-x-full transition-transform duration-300 ease-in-out z-40 flex flex-col pt-16">
+    <a href="#beranda" class="py-3 px-6 hover:bg-red-500">Beranda</a>
+    <a href="produk.html#produk" class="py-3 px-6 hover:bg-red-500">Produk</a>
+    <a href="#tentang" class="py-3 px-6 hover:bg-red-500">Tentang</a>
+    <a href="#kontak" class="py-3 px-6 hover:bg-red-500">Kontak</a>
+  </div>
+  
+  <!-- Overlay -->
+  <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30"></div>
+  
+  <!-- Hero -->
+  <section id="beranda" class="bg-cover bg-center h-[400px] flex items-center justify-center text-white text-center relative pt-20" style="background-image: url('https://source.unsplash.com/1600x900/?food,restaurant');">
+    <div class="bg-black bg-opacity-50 p-6 rounded-xl">
+      <h2 class="text-4xl font-bold mb-4">Selamat Datang di nalwind.testy</h2>
+      <p class="mb-6">Makanan enak, harga bersahabat, siap mengisi perutmu.</p>
+      <a href="produk.html#produk" class="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300">
+        Lihat Menu
+      </a>
+    </div>
+  </section>
+  
+  <style>
+  @keyframes slide {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  .slider {
+    display: flex;
+    gap: 2rem;
+    animation: slide 15s linear infinite;
+  }
+</style>
+
+<!-- Section Animasi -->
+<section id="animasi" class="py-12 bg-gray-100 overflow-hidden">
+  <h3 class="text-2xl font-bold text-center mb-8">Spesial dan Best seller <p>
+    <!--Tab to edit-->
+  </p>Nalwind.Testy 🍜</h3>
+
+  <div class="slider">
+    <img src="mie jebew.jpg" class="w-24 h-24 rounded-full object-cover shadow-lg">
+    <img src="Cireng buled.jpg" class="w-24 h-24 rounded-full object-cover shadow-lg">
+    <img src="minuman.jpeg" class="w-24 h-24 rounded-full object-cover shadow-lg">
+    <!--<img src="https://source.unsplash.com/100x100/?seblak" class="w-24 h-24 rounded-full object-cover shadow-lg"> -->
+    <img src="dimsum.jpeg" class="w-24 h-24 rounded-full object-cover shadow-lg">
+  </div>
+</section>
+
+  
+<!-- Produk -->
+<section id="produk" class="max-w-6xl mx-auto py-12 px-4">
+  <h3 class="text-3xl font-bold text-center mb-10">Produk Kami</h3>
+
+  <div class="grid grid-cols-2 gap-6">
+    
+    <!-- Card Produk 1 -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition flex flex-col">
+      <img src="mie jebew.jpeg" alt="Mie Pedas" class="w-full h-56 object-cover">
+      <div class="p-6 flex flex-col flex-grow">
+        <h4 class="font-bold text-2xl mb-2">Mie Pedas</h4>
+        <p class="text-gray-600 mb-3">Mie pedas gurih khas nalwind.testy.</p>
+
+        <div class="mt-auto">
+          <p class="font-semibold text-red-600 mb-4">Rp 15.000</p>
+          <div class="flex gap-2">
+            <button onclick="openModal('miePedas')" 
+                    class="flex-1 text-center bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+              Lihat Detail
+            </button>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20pesan%20Mie%20Pedas" target="_blank"
+               class="flex-1 text-center bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
+              Pesan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Produk 2 -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition flex flex-col">
+      <img src="Cireng.jpeg" alt="Gorengan" class="w-full h-56 object-cover">
+      <div class="p-6 flex flex-col flex-grow">
+        <h4 class="font-bold text-2xl mb-2">Aneka Gorengan</h4>
+        <p class="text-gray-600 mb-3">Tempe, tahu isi, cireng, pisang goreng.</p>
+
+        <div class="mt-auto">
+          <p class="font-semibold text-red-600 mb-4">Mulai Rp 2.000</p>
+          <div class="flex gap-2">
+            <button onclick="openModal('gorengan')" 
+                    class="flex-1 text-center bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+              Lihat Detail
+            </button>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20pesan%20Gorengan" target="_blank"
+               class="flex-1 text-center bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
+              Pesan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Produk 3 -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition flex flex-col">
+      <img src="minuman.jpeg" alt="Minuman Segar" class="w-full h-56 object-cover">
+      <div class="p-6 flex flex-col flex-grow">
+        <h4 class="font-bold text-2xl mb-2">Minuman Segar</h4>
+        <p class="text-gray-600 mb-3">Es teh, kopi susu, jus buah.</p>
+
+        <div class="mt-auto">
+          <p class="font-semibold text-red-600 mb-4">Rp 8.000 - 12.000</p>
+          <div class="flex gap-2">
+            <button onclick="openModal('minuman')" 
+                    class="flex-1 text-center bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+              Lihat Detail
+            </button>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20pesan%20Minuman" target="_blank"
+               class="flex-1 text-center bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
+              Pesan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Produk 4 -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition flex flex-col">
+      <img src="dimsum.jpeg" alt="Seblak Komplit" class="w-full h-56 object-cover">
+      <div class="p-6 flex flex-col flex-grow">
+        <h4 class="font-bold text-2xl mb-2">Seblak Komplit</h4>
+        <p class="text-gray-600 mb-3">Toping kerupuk, bakso, sosis.</p>
+
+        <div class="mt-auto">
+          <p class="font-semibold text-red-600 mb-4">Rp 18.000</p>
+          <div class="flex gap-2">
+            <button onclick="openModal('seblak')" 
+                    class="flex-1 text-center bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+              Lihat Detail
+            </button>
+            <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20pesan%20Seblak" target="_blank"
+               class="flex-1 text-center bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
+              Pesan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Tombol Lihat Semua Produk -->
+      <div class="text-center mt-5">
+        <a href="produk.html" 
+           class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
+          Lihat Semua Produk
+        </a>
+      </div>
+
+  </div>
+</section>
+
+
+<!-- Modal Template -->
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-xl max-w-lg w-full p-6 relative animate-fade-in">
+    <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-500 hover:text-black text-2xl">&times;</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('modal');
+  const modalContent = document.getElementById('modal-content');
+
+  const produkDetail = {
+    miePedas: {
+      title: "Mie Pedas",
+      img: "mie jebewdetail.jpg",
+      desc: "Mie pedas gurih khas nalwind.testy. Pilih level pedas sesuai selera.",
+      varian: ["Level 1 (Pedas Manis)", "Level 2 (Sedang)", "Level 3 (Ekstra Pedas)"],
+      price: "Rp 15.000"
+    },
+    gorengan: {
+      title: "Aneka Gorengan",
+      img: "Cireng detail.jpg",
+      desc: "Gorengan hangat renyah dengan banyak pilihan.",
+      varian: ["Tempe Mendoan", "Tahu Isi", "Cireng", "Pisang Goreng"],
+      price: "Mulai Rp 2.000"
+    },
+    minuman: {
+      title: "Minuman Segar",
+      img: "minuman.jpeg",
+      desc: "Segarnya es teh, kopi susu kekinian, dan jus buah.",
+      varian: ["Es Teh", "Kopi Susu", "Jus Alpukat", "Jus Mangga"],
+      price: "Rp 8.000 - 12.000"
+    },
+    seblak: {
+      title: "Dimsum",
+      img: "dimsum.jpeg",
+      desc: "Seblak khas Bandung dengan topping kerupuk, bakso, dan sosis.",
+      varian: ["Seblak Original", "Seblak Ceker", "Seblak Seafood"],
+      price: "Rp 18.000"
+    }
+  };
+
+  function openModal(key) {
+    const p = produkDetail[key];
+    modalContent.innerHTML = `
+      <img src="${p.img}" alt="${p.title}" class="w-full h-56 object-cover rounded-lg mb-4">
+      <h2 class="text-2xl font-bold mb-2">${p.title}</h2>
+      <p class="text-gray-600 mb-3">${p.desc}</p>
+      <p class="font-semibold mb-3">Harga: <span class="text-red-600">${p.price}</span></p>
+      <h3 class="font-bold mb-2">Varian:</h3>
+      <ul class="list-disc list-inside mb-4 text-gray-700">
+        ${p.varian.map(v => `<li>${v}</li>`).join('')}
+      </ul>
+      <a href="https://wa.me/6281234567890?text=Halo%20saya%20mau%20pesan%20${p.title}" target="_blank"
+         class="block text-center bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
+         Pesan via WhatsApp
+      </a>
+    `;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+</script>
+
+<style>
+  @keyframes fade-in {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+</style>
+
+  
+  <!-- Tentang -->
+  <section id="tentang" class="bg-yellow-50 py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-4">Tentang Kami</h3>
+      <p class="text-gray-700 leading-relaxed text-sm">
+        <b>nalwind.testy</b> hadir untuk menemani hari-harimu dengan makanan enak, harga ramah di kantong.
+        Kami menggunakan bahan segar dan menjaga rasa autentik agar setiap gigitan selalu bikin nagih.
+      </p>
+    </div>
+  </section>
+  
+<!-- Section Kontak -->
+<section id="kontak" class="py-12 bg-white">
+  <h3 class="text-2xl font-bold text-center mb-8">Kontak & Lokasi 📍</h3>
+
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+    <!-- Map -->
+    <div class="w-full h-64 md:h-80">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d247.4525777335429!2d107.7348093!3d-7.0980132!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68bf4ae85615f9%3A0x7d244ebb4801be65!2sRumah%20Aldi!5e0!3m2!1sid!2sid!4v1757270226853!5m2!1sid!2sid"
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Info Kontak -->
+    <div class="flex flex-col justify-center">
+      <h4 class="text-xl font-semibold mb-4">Nalwind.Testy</h4>
+      <p class="mb-2"><strong>Alamat:</strong> kp.Nganceng, Nagrak, Kec. Pacet, Kabupaten Bandung, Jawa Barat 40385</p>
+      <p class="mb-2"><strong>Jam Operasional:</strong></p>
+      <ul class="list-disc list-inside mb-4">
+        <li>Senin - Jumat: 10.00 - 21.00</li>
+        <li>Sabtu - Minggu: 11.00 - 23.00</li>
+      </ul>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/6281234567890" class="text-green-600 font-medium">+62 812-3456-7890</a></p>
+    </div>
+  </div>
+</section>
+
+  
+  <!-- Footer -->
+  <footer class="bg-red-600 text-white text-center py-6 mt-12">
+    <p>&copy; 2025 nalwind.testy - All Rights Reserved</p>
+  </footer>
+  
+  <!-- Script -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menuMobile = document.getElementById('menu-mobile');
+    const overlay = document.getElementById('overlay');
+    const links = menuMobile.querySelectorAll('a');
+    
+    menuBtn.addEventListener('click', () => {
+      menuMobile.classList.toggle('translate-x-full');
+      overlay.classList.toggle('hidden');
+    });
+    
+    overlay.addEventListener('click', () => {
+      menuMobile.classList.add('translate-x-full');
+      overlay.classList.add('hidden');
+    });
+    
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menuMobile.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+      });
+    });
+  </script>
+  
+</body>
+
+</html>
